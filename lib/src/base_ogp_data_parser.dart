@@ -38,6 +38,7 @@ mixin OgpDataKeys {
   static const keyFbAppId = 'fb:app_id';
   static const keyTwitterCard = 'twitter:card';
   static const keyTwitterSite = 'twitter:site';
+  static const publishedTime = 'article:published_time';
 }
 
 mixin BaseOgpDataParser {
@@ -80,6 +81,7 @@ mixin BaseOgpDataParser {
   String? fbAppId;
   String? twitterCard;
   String? twitterSite;
+  String? publishedTime;
 
   OgpData parse() {
     final OgpData o = OgpData();
@@ -122,6 +124,7 @@ mixin BaseOgpDataParser {
     o.fbAppId = fbAppId;
     o.twitterCard = twitterCard;
     o.twitterSite = twitterSite;
+    o.publishedTime = publishedTime;
     return o;
   }
 }
@@ -174,6 +177,7 @@ class OgpData with BaseOgpDataParser, OgpDataKeys {
       OgpDataKeys.keyFbAppId: fbAppId,
       OgpDataKeys.keyTwitterCard: twitterCard,
       OgpDataKeys.keyTwitterSite: twitterSite,
+      OgpDataKeys.publishedTime: publishedTime,
     };
   }
 
@@ -218,6 +222,7 @@ class OgpData with BaseOgpDataParser, OgpDataKeys {
     o.fbAppId = json[OgpDataKeys.keyFbAppId];
     o.twitterCard = json[OgpDataKeys.keyTwitterCard];
     o.twitterSite = json[OgpDataKeys.keyTwitterSite];
+    o.publishedTime = json[OgpDataKeys.publishedTime];
     return o;
   }
 
@@ -261,6 +266,7 @@ class OgpData with BaseOgpDataParser, OgpDataKeys {
     String? fbAppId,
     String? twitterCard,
     String? twitterSite,
+    String? publishedTime,
   }) {
     final OgpData o = OgpData();
     o.url = url ?? this.url;
@@ -302,6 +308,7 @@ class OgpData with BaseOgpDataParser, OgpDataKeys {
     o.fbAppId = fbAppId ?? this.fbAppId;
     o.twitterCard = twitterCard ?? this.twitterCard;
     o.twitterSite = twitterSite ?? this.twitterSite;
+    o.publishedTime = publishedTime ?? this.publishedTime;
     return o;
   }
 }

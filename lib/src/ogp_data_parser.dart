@@ -162,6 +162,9 @@ class OgpDataParser with BaseOgpDataParser {
   String? get twitterSite => _getContent(property: 'twitter:site');
 
   @override
+  String? get publishedTime => _getContent(property: 'article:published_time');
+
+  @override
   String toString() => parse().toString();
 
   String? _getContent({
