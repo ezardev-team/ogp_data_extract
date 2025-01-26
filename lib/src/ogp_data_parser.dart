@@ -165,6 +165,9 @@ class OgpDataParser with BaseOgpDataParser {
   String? get publishedTime => _getContent(property: 'article:published_time');
 
   @override
+  String? get published => _getContent(property: 'article:published');
+
+  @override
   String toString() => parse().toString();
 
   String? _getContent({

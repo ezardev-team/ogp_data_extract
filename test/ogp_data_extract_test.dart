@@ -57,4 +57,11 @@ void main() {
     expect(ogpData.image,
         'https://pbs.twimg.com/tweet_video_thumb/FGII52MVkAQN-Sj.jpg:large');
   });
+
+  test('Published At', () async {
+    String url =
+        'https://www.forbes.com/sites/jjkinahan/2025/01/24/stocks-close-at-record-highs-ahead-of-big-week-of-earnings/';
+    final OgpData? ogpData = await OgpDataExtract.execute(url);
+    expect(ogpData!.published, '2025-01-24');
+  });
 }

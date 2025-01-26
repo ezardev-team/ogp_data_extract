@@ -38,7 +38,8 @@ mixin OgpDataKeys {
   static const keyFbAppId = 'fb:app_id';
   static const keyTwitterCard = 'twitter:card';
   static const keyTwitterSite = 'twitter:site';
-  static const publishedTime = 'article:published_time';
+  static const keyPublishedTime = 'article:published_time';
+  static const keyPublished = 'article:published';
 }
 
 mixin BaseOgpDataParser {
@@ -82,6 +83,7 @@ mixin BaseOgpDataParser {
   String? twitterCard;
   String? twitterSite;
   String? publishedTime;
+  String? published;
 
   OgpData parse() {
     final OgpData o = OgpData();
@@ -125,6 +127,7 @@ mixin BaseOgpDataParser {
     o.twitterCard = twitterCard;
     o.twitterSite = twitterSite;
     o.publishedTime = publishedTime;
+    o.published = published;
     return o;
   }
 }
@@ -177,7 +180,8 @@ class OgpData with BaseOgpDataParser, OgpDataKeys {
       OgpDataKeys.keyFbAppId: fbAppId,
       OgpDataKeys.keyTwitterCard: twitterCard,
       OgpDataKeys.keyTwitterSite: twitterSite,
-      OgpDataKeys.publishedTime: publishedTime,
+      OgpDataKeys.keyPublishedTime: publishedTime,
+      OgpDataKeys.keyPublished: published,
     };
   }
 
@@ -222,7 +226,8 @@ class OgpData with BaseOgpDataParser, OgpDataKeys {
     o.fbAppId = json[OgpDataKeys.keyFbAppId];
     o.twitterCard = json[OgpDataKeys.keyTwitterCard];
     o.twitterSite = json[OgpDataKeys.keyTwitterSite];
-    o.publishedTime = json[OgpDataKeys.publishedTime];
+    o.publishedTime = json[OgpDataKeys.keyPublishedTime];
+    o.published = json[OgpDataKeys.keyPublished];
     return o;
   }
 
@@ -267,6 +272,7 @@ class OgpData with BaseOgpDataParser, OgpDataKeys {
     String? twitterCard,
     String? twitterSite,
     String? publishedTime,
+    String? published,
   }) {
     final OgpData o = OgpData();
     o.url = url ?? this.url;
@@ -309,6 +315,7 @@ class OgpData with BaseOgpDataParser, OgpDataKeys {
     o.twitterCard = twitterCard ?? this.twitterCard;
     o.twitterSite = twitterSite ?? this.twitterSite;
     o.publishedTime = publishedTime ?? this.publishedTime;
+    o.published = published ?? this.published;
     return o;
   }
 }
